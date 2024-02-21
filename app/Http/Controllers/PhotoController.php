@@ -9,7 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class PhotoController extends Controller
 {
-    
+
         public function index($photo_id)
         {
             $data = Photo::with('user')
@@ -66,6 +66,14 @@ class PhotoController extends Controller
                 Storage::delete($photo_path);
                 return redirect()->back();
             }
+        }
+
+        //hapus foto postingan
+        public function hapusPost($id) {
+          $photo = Photo::where('id', $id);
+          $photo->delete();
+          Alert::success('Foto berhasil dihapus');
+          return redirect(route('user.home'));
         }
 
     }

@@ -11,7 +11,8 @@
             </a>
             <p class="text-muted fs-6 me-3">{{ date('d-m-Y', strtotime($data->created_at)) }}</p>
         </div>
-        <img class="img-fluid mx-auto d-block" src="{{ asset('storage/' . $data->lokasi_file) }}" alt="{{ $data->judul_foto }}">
+        <img class="img-fluid mx-auto d-block" src="{{ asset('storage/' . $data->lokasi_file) }}" alt="
+        {{ $data->judul_foto }}">
         <div class="p-3 d-flex justify-content-start align-items-center">
             @if ($data->liked_by_user_exists)
                 <form action="{{ route('user.unlike') }}" method="post">
@@ -44,6 +45,13 @@
         <div id="post-detail" class="my-2 ms-3">
             <span class="fw-bold fs-5 d-block">{{ $data->judul_foto }}</span>
             <span class="text-muted fs-6">{{ $data->deskripsi_foto }}</span>
+            @if ($data->user->id === Auth::user()->id)
+            <form action="{{route('user.hapus.post', $data->id)}}" method="POST">
+
+                @csrf
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+            @endif
         </div>
     </div>
 </div>

@@ -53,6 +53,10 @@ class ProfilController extends Controller
     //hapus foto profil
     public function hapus() {
         $user = Auth::user();
+        if ($user->avatar === null) {
+            Alert::Error('Foto memang tidak ada');
+            return back();
+        }
         $user->update(['avatar' => null]);
         Alert::Success('Berhasil', 'Foto Berhasil Dihapus');
 
@@ -66,6 +70,9 @@ class ProfilController extends Controller
         }
         $user = User::find($user_id)->select('id', 'nama', 'avatar', 'created_at','nis', 'email')->first();
         $photos = Photo::where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
+        if ($user_id == auth()->user()->id) {
+            return redirect(route('user.profil'));
+        }
         return view('pages.user_profil', compact('photos', 'user'));
     }
 }

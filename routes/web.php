@@ -22,9 +22,8 @@ use App\Http\Controllers\LikePhotoController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Route::get('/', [PhotoController::class, 'home'])->name('home');
+
 route::get('/logout', [LogoutController::class, 'logout'])->name('logout.process');
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/login', [LoginController::class, 'login'])->name('login.process');
@@ -40,6 +39,9 @@ Route::post('/unlike',[LikePhotoController::class, 'unlike'])->name('unlike');
 
 //comment photo
 Route::post('/comment',[CommentController::class, 'post'])->name('post');
+
+//hapus postingan
+Route::post('/hapus/{id}', [PhotoController::class, 'hapusPost'])->name('hapus.post');
 
 //menampilkan profile orang lain
 Route::get('/profile/{user_id}',[ProfilController::class, 'people'])->name('people');
@@ -74,6 +76,7 @@ Route::controller(PhotoController::class)->middleware('auth')->name('photo.')
 
 Route::prefix('admin')->name('admin.')->middleware('role:admin')->group( function() {
 Route::get('/dashboardAdmin' ,[AdminController::class, 'index'])->name('index');
+Route::get('/postingan' ,[AdminController::class, 'postingan'])->name('postingan');
 });
 
 
