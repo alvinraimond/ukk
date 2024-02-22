@@ -177,7 +177,10 @@
         <div class="d-flex justify-content-between mb-5">
             <h2>Postingan</h2>
            <a href="{{route('photo.post')}}"><button class="btn btn-success btn-sm">Buat Postingan</button></a>
+<<<<<<< HEAD
            <a href="{{route('photo.post')}}"><button class="btn btn-success btn-sm">Buat Album</button></a>
+=======
+>>>>>>> c84463b2eaa18f847fa5b496ba995777d9b09fb9
         </div>
 
         <div class="row">

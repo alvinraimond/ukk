@@ -2,9 +2,12 @@
 
 @section('content')
 <div class="row justify-content-center align-items-start">
+<<<<<<< HEAD
     @if ($photos === null)
     <h1>kosong</h1>
 @endif
+=======
+>>>>>>> c84463b2eaa18f847fa5b496ba995777d9b09fb9
     @foreach ($photos as $photo)
     <div class="col-10 col-md-3 mx-1 my-3 p-1 rounded shadow-lg">
         <div class="d-flex justify-content-between align-items-center">

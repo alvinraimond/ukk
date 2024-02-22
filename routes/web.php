@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+<<<<<<< HEAD
 use App\Http\Controllers\AlbumController;
+=======
+>>>>>>> c84463b2eaa18f847fa5b496ba995777d9b09fb9
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\LogoutController;
@@ -23,7 +26,10 @@ use App\Http\Controllers\LikePhotoController;
 |
 */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c84463b2eaa18f847fa5b496ba995777d9b09fb9
 Route::get('/', [PhotoController::class, 'home'])->name('home');
 
 route::get('/logout', [LogoutController::class, 'logout'])->name('logout.process');
@@ -57,9 +63,12 @@ Route::post('/update', [ProfilController::class, 'update'])->name('update');
 Route::post('/', [ProfilController::class, 'avatar'])->name('avatar');
 //ini route untuk hapus poto profil
 Route::post('/destroy', [ProfilController::class, 'hapus'])->name('hapus');
+<<<<<<< HEAD
 
 Route::get('/album',[AlbumController::class, 'index'])->name('album.index');
 Route::get('/form',[AlbumController::class, 'form'])->name('album.form');
+=======
+>>>>>>> c84463b2eaa18f847fa5b496ba995777d9b09fb9
 });
 
 

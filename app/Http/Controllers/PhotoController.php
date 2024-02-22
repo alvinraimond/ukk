@@ -26,9 +26,12 @@ class PhotoController extends Controller
         public function home()
         {
             $photos = Photo::with('user')->orderBy('created_at', 'desc')->get();
+<<<<<<< HEAD
             if (Photo::count() == 0) {
                 return view('pages.kosong');
             }
+=======
+>>>>>>> c84463b2eaa18f847fa5b496ba995777d9b09fb9
             return view('pages.home', compact('photos'));
         }
 

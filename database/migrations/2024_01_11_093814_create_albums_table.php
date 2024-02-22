@@ -16,8 +16,11 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('nama_album');
             $table->text('deskripsi');
+<<<<<<< HEAD
             $table->string('cover_album')->nullable();
 
+=======
+>>>>>>> c84463b2eaa18f847fa5b496ba995777d9b09fb9
             $table->timestamps();
         });
     }
